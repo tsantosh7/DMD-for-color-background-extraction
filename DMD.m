@@ -31,3 +31,14 @@ clc
 %% Computer the color calibration
   
 imshow(rgbImage_background,[])
+%% color calibrate
+
+IR = cf_reinhard(rgbImage_background,calibration);
+
+figure;
+subplot(1,3,1); imshow(I); title('Original Image'); axis off
+subplot(1,3,2); imshow(rgbImage_background); title('Target Palette'); axis off
+subplot(1,3,3); imshow(IR); title('Result After Colour Transfer'); axis off);
+
+%% color calibrate
+imshow(color_calibrate(rgbImage_background,I));
